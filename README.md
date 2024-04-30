@@ -32,12 +32,15 @@ Here are my solutions to these issues.
 
 ### Issue #1
 
-(This one's easy)
+(This one's easy.)
 
 Add this CSS to the custom CSS for the menu builder:
+
+```
 .breakdance-dropdown-item--active .breakdance-dropdown-link__label {
   color: red;
 }
+```
 
 In other words, select the 'Menu Builder' in the structure. Then select the 'Advanced' tab. In the 'Custom CSS' block paste the code above.
 
@@ -49,6 +52,7 @@ That should make the items in the drop-down menu highlight in red (or whatever c
 
 Open the 'menu.js' file you created in VS Code and paste this code:
 
+```
 // change the color of the top-level link in the dropdown menu 
 // if the current URL matches the URL of a submenu item
 document.addEventListener('DOMContentLoaded', function() {
@@ -74,12 +78,64 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+```
 
 Then open your 'functions.php' file for the Zero Theme and paste this at the bottom:
 
+```
 // added script for menu customization
 function my_custom_scripts() {
-    wp_enqueue_script('jquery');
-    wp_enqueue_script('my-custom-js', get_template_directory_uri() . '/js/menu.js', array('jquery'), null, true);
+    wp_enqueue_script('my-custom-js', get_template_directory_uri() . '/js/menu.js', array(), false, true);
 }
 add_action('wp_enqueue_scripts', 'my_custom_scripts');
+```
+
+Refresh your page and you should see that the active pages show in red in the submenu.
+
+## Issue 2
+
+(This is more of a work around.)
+
+First, you need to decide at what viewport level you want to show your mobile menu. Select your Menu Builder in the structure on the right, then select the design tab on the left. Open the 'Mobile Menu' section and select the viewport size that you want your mobile menu to kick in. If you don't select anything it will show at 'Tablet Landscape' by default. Remember this selection for later.
+
+Next you need to go to the menu drop-down where you want to apply this work around. Enter a new link to the column (or first column if you have multiple). Enter a link text that will make sense to the reader (ie, of the top-level menu item says "Services" then this text should say "Services Page" or something like that). Then create the URL for the link. Be sure to move this to the top of the column. Also, remember the exact text you entered because we're going to use that to find and target this submenu item.
+
+Now, go back to VS Code and add this to the bottom of your 'menu.js' file:
+
+```
+// Define an array of page names you want to check
+const pagesToHide = ['Services Page', 'Newsletter Page'];
+
+document.querySelectorAll('li a span').forEach(function(span) {
+    // Loop through each page in the array and check if the span's textContent matches any of them
+    pagesToHide.forEach(function(page) {
+        if (span.textContent.trim() === page) {
+            span.closest('li').classList.add('hide-menu-item');
+        }
+    });
+});
+```
+
+Be sure to put your page names in the array at the top.
+
+Then go back to the Menu Builder's 'Advanced' tab and place your focus at the bottom of the 'Custom CSS' box again. IMPORTANT: Be sure that you viewport is on 'Desktop' and place this below what you placed in Issue 1.1:
+
+```
+.hide-menu-item {
+  display: none;
+}
+```
+
+Then change your viewport to the same size as you would have the mobile menu display at, in the same 'Custom CSS' box place this:
+
+```
+.hide-menu-item {
+  display: inherit;
+}
+```
+
+That will hide the extra tab that is not needed for the desktop menu, but will show it for the mobile menu.
+
+I believe that is all. I hope that helps you out.
+
+-- John Osmond
