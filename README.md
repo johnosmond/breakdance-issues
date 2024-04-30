@@ -151,4 +151,6 @@ That will hide the extra tab that is not needed for the desktop menu, but will s
 
 I believe that is all. I hope that helps you out.
 
+You can find a video about this here: https://youtu.be/3MJO1KQSS_E
+
 -- John Osmond
