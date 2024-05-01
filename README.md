@@ -16,7 +16,7 @@ If you build your menus with the BD Menu Builder and include drop-down menus, th
 
 The 'active' settings also do not bubble up to the parent when a submenu page is active.
 
-To be clear, the 'active' settings apply to the top-level menu item when that page is the active page, but when any of the items in the drop-down is the active page, neiter the item in the drop-down nor the parent at the top get the 'active' settings applied to them.
+To be clear, the 'active' settings apply to the top-level menu item when that page is the active page, but when any of the items in the drop-down is the active page, neither the item in the drop-down nor the parent at the top get the 'active' settings applied to them.
 
 ### Issue #2
 
