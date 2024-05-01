@@ -2,6 +2,8 @@
 
 This is some code and instuctions for correcting or finding a work-around for some issues with the Breakdance Builder for WordPress.
 
+You can find a video about this here: https://youtu.be/3MJO1KQSS_E
+
 I like Breakdance Builder, but there are some issues with it. Recently, I've figured out how to correct some of them and would like to share my findings with you here.
 
 ## Issues
