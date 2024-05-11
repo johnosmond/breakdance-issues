@@ -151,6 +151,8 @@ Then change your viewport to the same level as you set to have the mobile menu d
 
 That will hide the extra tab that is not needed for the desktop menu, but will show it for the mobile menu.
 
+## Conclusion
+
 I believe that is all. I hope that helps you out.
 
 You can find a video about this here: https://youtu.be/3MJO1KQSS_E
