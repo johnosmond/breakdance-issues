@@ -1,5 +1,11 @@
 # Issues with Breakdance Builder for WordPress (Episode 1)
 
+## Please Note This solutions has been DEPRECATED. 
+
+Please see full solution here: https://github.com/johnosmond/breakdance-issues-02
+
+## DEPRECATED solution kept here for completeness
+
 This is some code and instuctions for correcting or finding a work-around for some issues with the Breakdance Builder for WordPress.
 
 You can find a video about this here: https://youtu.be/3MJO1KQSS_E
